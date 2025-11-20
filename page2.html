@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Kavita!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+            animation: fadeIn 1s ease;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 30px;
+            min-height: 80vh;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            margin: -30px -30px 30px -30px;
+            color: white;
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #ffd8d8;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+        }
+        
+        .letter {
+            background: #fff9f9;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #ff6b6b;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ffd8d8;
+            color: #777;
+            font-style: italic;
+        }
+        
+        .heart {
+            color: #ff6b6b;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .nav-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        }
+        
+        .nav-btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .nav-btn i {
+            margin: 0 8px;
+        }
+        
+        .heart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+        }
+        
+        .instruction {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        .small-hearts {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .small-heart {
+            font-size: 4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .small-heart:hover {
+            transform: scale(1.2);
+        }
+        
+        .big-heart {
+            font-size: 5rem;
+            color: #ff6b6b;
+            margin: 30px 0;
+            text-align: center;
+            display: none;
+        }
+        
+        .love-text {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Updated memory container for larger Instagram story size */
+        .memory-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Instagram story size - 9:16 aspect ratio */
+        .memory-image {
+            width: 100%;
+            height: 85vh; /* Instagram story height */
+            max-height: 700px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Caption below the image */
+        .memory-caption {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .memory-caption h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .memory-caption p {
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .love-text {
+                font-size: 1.8rem;
+            }
+            
+            .big-heart {
+                font-size: 3.5rem;
+            }
+            
+            .small-hearts {
+                gap: 20px;
+            }
+            
+            .small-heart {
+                font-size: 3rem;
+            }
+            
+            .memory-image {
+                height: 70vh;
+                max-height: 500px;
+            }
+            
+            .memory-caption {
+                padding: 20px;
+            }
+            
+            .memory-caption h3 {
+                font-size: 1.5rem;
+            }
+            
+            .memory-caption p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .memory-image {
+                height: 60vh;
+                max-height: 400px;
+            }
+            
+            .memory-caption {
+                padding: 15px;
+            }
+            
+            .memory-caption h3 {
+                font-size: 1.3rem;
+            }
+            
+            .memory-caption p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Page 1: Heart Animation -->
+    <div class="page active" id="page1">
+        <div class="container">
+            <header>
+                <h1>A Special Surprise <span class="heart">❤️</span></h1>
+                <p class="subtitle">Click on all hearts to reveal a message</p>
+            </header>
+            
+            <div class="heart-container">
+                <div class="instruction">Click on all hearts to reveal a message</div>
+                <div class="small-hearts" id="smallHearts">
+                    <!-- 3 small hearts will be generated by JavaScript -->
+                </div>
+                <div class="big-heart" id="bigHeart">
+                    ❤️
+                </div>
+                <div class="love-text" id="loveText">
+                    I LOVE YOU KAVITA
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(1, 2)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 1 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 2: Love Letter -->
+    <div class="page" id="page2">
+        <div class="container">
+            <header>
+                <h1>My Love Letter <span class="heart">❤️</span></h1>
+                <p class="subtitle">Words from my heart to yours</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-heart"></i> For My Dearest Kavita</h2>
+                <div class="letter">
+                    <p>My Dearest Kavita,</p>
+                    <br>
+                    <p>Happy Birthday! On this special day, I wanted to send you more than just a text message. I wanted to create something that shows just how much you mean to me.</p>
+                    <br>
+                    <p>Even though we're miles apart, my heart is always with you. I think about you constantly - your smile, your laugh, the way your eyes light up when you're excited about something.</p>
+                    <br>
+                    <p>You've brought so much joy and meaning into my life, and I'm endlessly grateful for every moment we've shared. I cherish our memories and look forward to creating so many more together.</p>
+                    <br>
+                    <p>Today, on your birthday, I hope you feel as special as you are. I hope you're surrounded by love and happiness, and I can't wait for the day when I can celebrate with you in person.</p>
+                    <br>
+                    <p>With all my love,</p>
+                    <p>Your Atul</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(2, 1)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(2, 3)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 2 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Pages 3-7: Regular memory pages with generic captions -->
+    <!-- Page 3: Memory 1 (page1.jpeg) -->
+    <div class="page" id="page3">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 1</h2>
+                <div class="memory-container">
+                    <img src="page1.jpeg" alt="Memory 1" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 1</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(3, 2)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(3, 4)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 3 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 4: Memory 2 (page2.jpeg) -->
+    <div class="page" id="page4">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 2</h2>
+                <div class="memory-container">
+                    <img src="page2.jpeg" alt="Memory 2" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 2</h3>
+                    <p>Another precious moment in our journey</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(4, 3)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(4, 5)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 4 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 5: Memory 3 (page3.jpeg) -->
+    <div class="page" id="page5">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 3</h2>
+                <div class="memory-container">
+                    <img src="page3.jpeg" alt="Memory 3" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 3</h3>
+                    <p>Creating beautiful memories together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(5, 4)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(5, 6)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 5 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 6: Memory 4 (page4.jpeg) -->
+    <div class="page" id="page6">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 4</h2>
+                <div class="memory-container">
+                    <img src="page4.jpeg" alt="Memory 4" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 4</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(6, 5)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(6, 7)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 6 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 7: Memory 5 (page5.jpeg) -->
+    <div class="page" id="page7">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 5</h2>
+                <div class="memory-container">
+                    <img src="page5.jpeg" alt="Memory 5" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 5</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(7, 6)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(7, 8)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 7 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Pages 8-14: Special memory pages with custom captions -->
+    <!-- Page 8: Memory 6 (page6.jpeg) - I Love Your Smile -->
+    <div class="page" id="page8">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 6</h2>
+                <div class="memory-container">
+                    <img src="page6.jpeg" alt="Memory 6" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>I Love Your Smile</h3>
+                    <p>I Love yr smile KavitA..😌<br>It makes me feel better..<br>It makes me smile too,Even gives me Butterflies ..🦋</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(8, 7)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(8, 9)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 8 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 9: Memory 7 (page7.jpeg) - My Favorite Place -->
+    <div class="page" id="page9">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 7</h2>
+                <div class="memory-container">
+                    <img src="page7.jpeg" alt="Memory 7" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>My Favorite Place</h3>
+                    <p>My favourite place in all the world is next to you..🧿🫂</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(9, 8)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(9, 10)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 9 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 10: Memory 8 (page8.jpeg) - My Best Gift -->
+    <div class="page" id="page10">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 8</h2>
+                <div class="memory-container">
+                    <img src="page8.jpeg" alt="Memory 8" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>My Best Gift</h3>
+                    <p>You are my best gift 🎁 you make my life magical ✨🪄</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(10, 9)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(10, 11)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 10 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 11: Memory 9 (page9.jpeg) - Holding You -->
+    <div class="page" id="page11">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 9</h2>
+                <div class="memory-container">
+                    <img src="page9.jpeg" alt="Memory 9" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Holding You</h3>
+                    <p>To hold you in my arms 🫂 <br>One of the most amazing feeling in the world..🧿🌎</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(11, 10)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(11, 12)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 11 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 12: Memory 10 (page10.jpeg) - Holding Hands -->
+    <div class="page" id="page12">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 10</h2>
+                <div class="memory-container">
+                    <img src="page10.jpeg" alt="Memory 10" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Holding Hands</h3>
+                    <p>You may hold my hand 🫱🏻‍🫲🏻 for a while but you hold my heart forever..♾️❤️</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(12, 11)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(12, 13)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 12 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 13: Memory 11 (page11.jpeg) - My Prayer -->
+    <div class="page" id="page13">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 11</h2>
+                <div class="memory-container">
+                    <img src="page11.jpeg" alt="Memory 11" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>My Prayer</h3>
+                    <p>My prayer is that you get everything you want and more..You deserve it all..❤️💯</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(13, 12)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(13, 14)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 13 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 14: Memory 12 (page12.jpeg) - Our Journey -->
+    <div class="page" id="page14">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 12</h2>
+                <div class="memory-container">
+                    <img src="page12.jpeg" alt="Memory 12" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Our Journey</h3>
+                    <p>Taking this journey with you has been a joyride..🧿❤️</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(14, 13)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(14, 15)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 14 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Pages 15-26: Regular memory pages without custom captions -->
+    <!-- Page 15: Memory 13 (page13.jpeg) -->
+    <div class="page" id="page15">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 13</h2>
+                <div class="memory-container">
+                    <img src="page13.jpeg" alt="Memory 13" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 13</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(15, 14)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(15, 16)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 15 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 16: Memory 14 (page14.jpeg) -->
+    <div class="page" id="page16">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 14</h2>
+                <div class="memory-container">
+                    <img src="page14.jpeg" alt="Memory 14" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 14</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(16, 15)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(16, 17)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 16 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 17: Memory 15 (page15.jpeg) -->
+    <div class="page" id="page17">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 15</h2>
+                <div class="memory-container">
+                    <img src="page15.jpeg" alt="Memory 15" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 15</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(17, 16)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(17, 18)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 17 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 18: Memory 16 (page16.jpeg) -->
+    <div class="page" id="page18">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 16</h2>
+                <div class="memory-container">
+                    <img src="page16.jpeg" alt="Memory 16" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 16</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(18, 17)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(18, 19)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 18 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 19: Memory 17 (page17.jpeg) -->
+    <div class="page" id="page19">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 17</h2>
+                <div class="memory-container">
+                    <img src="page17.jpeg" alt="Memory 17" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 17</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(19, 18)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(19, 20)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 19 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 20: Memory 18 (page18.jpeg) -->
+    <div class="page" id="page20">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 18</h2>
+                <div class="memory-container">
+                    <img src="page18.jpeg" alt="Memory 18" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 18</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(20, 19)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(20, 21)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 20 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 21: Memory 19 (page19.jpeg) -->
+    <div class="page" id="page21">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 19</h2>
+                <div class="memory-container">
+                    <img src="page19.jpeg" alt="Memory 19" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 19</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(21, 20)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(21, 22)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 21 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 22: Memory 20 (page20.jpeg) -->
+    <div class="page" id="page22">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 20</h2>
+                <div class="memory-container">
+                    <img src="page20.jpeg" alt="Memory 20" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 20</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(22, 21)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(22, 23)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 22 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 23: Memory 21 (page21.jpeg) -->
+    <div class="page" id="page23">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 21</h2>
+                <div class="memory-container">
+                    <img src="page21.jpeg" alt="Memory 21" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 21</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(23, 22)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(23, 24)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 23 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 24: Memory 22 (page22.jpeg) -->
+    <div class="page" id="page24">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 22</h2>
+                <div class="memory-container">
+                    <img src="page22.jpeg" alt="Memory 22" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 22</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(24, 23)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(24, 25)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 24 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 25: Memory 23 (page23.jpeg) -->
+    <div class="page" id="page25">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 23</h2>
+                <div class="memory-container">
+                    <img src="page23.jpeg" alt="Memory 23" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 23</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(25, 24)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(25, 26)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 25 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 26: Memory 24 (page24.jpeg) -->
+    <div class="page" id="page26">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> Memory 24</h2>
+                <div class="memory-container">
+                    <img src="page24.jpeg" alt="Memory 24" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>Memory 24</h3>
+                    <p>A beautiful moment we shared together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(26, 25)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(26, 27)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 26 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Pages 27-31: Year pages with year-specific captions -->
+    <!-- Page 27: Memory 25 (page25.jpeg) - 2021 -->
+    <div class="page" id="page27">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> 2021</h2>
+                <div class="memory-container">
+                    <img src="page25.jpeg" alt="2021" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>2021</h3>
+                    <p>The beginning of our beautiful journey</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(27, 26)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(27, 28)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 27 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 28: Memory 26 (page26.jpeg) - 2022 -->
+    <div class="page" id="page28">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> 2022</h2>
+                <div class="memory-container">
+                    <img src="page26.jpeg" alt="2022" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>2022</h3>
+                    <p>Growing stronger together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(28, 27)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(28, 29)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 28 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 29: Memory 27 (page27.jpeg) - 2023 -->
+    <div class="page" id="page29">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> 2023</h2>
+                <div class="memory-container">
+                    <img src="page27.jpeg" alt="2023" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>2023</h3>
+                    <p>Creating beautiful memories</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(29, 28)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(29, 30)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 29 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 30: Memory 28 (page28.jpeg) - 2024 -->
+    <div class="page" id="page30">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> 2024</h2>
+                <div class="memory-container">
+                    <img src="page28.jpeg" alt="2024" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>2024</h3>
+                    <p>Another year of love and happiness</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(30, 29)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(30, 31)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 30 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 31: Memory 29 (page29.jpeg) - 2025 -->
+    <div class="page" id="page31">
+        <div class="container">
+            <header>
+                <h1>Our Memory Collage <span class="heart">❤️</span></h1>
+                <p class="subtitle">Special moments we've shared together</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-images"></i> 2025</h2>
+                <div class="memory-container">
+                    <img src="page29.jpeg" alt="2025" class="memory-image">
+                </div>
+                <div class="memory-caption">
+                    <h3>2025</h3>
+                    <p>Looking forward to our future together</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(31, 30)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(31, 32)">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 31 of 32</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Page 32: Final Birthday Message -->
+    <div class="page" id="page32">
+        <div class="container">
+            <header>
+                <h1>One More Message <span class="heart">❤️</span></h1>
+                <p class="subtitle">Just one more thing I wanted to say...</p>
+            </header>
+            
+            <div class="section">
+                <h2><i class="fas fa-heart"></i> My Final Birthday Wish</h2>
+                <div class="letter">
+                    <p>Happy birthday wishes once again, my beautiful love!</p>
+                    <br>
+                    <p>I know I've said it, but I genuinely wanted to send one more message today to remind you just how incredible you are. Watching you celebrate yesterday/this week has been the best, and you deserve every moment of joy.</p>
+                    <br>
+                    <p>You bring so much light, adventure, and warmth into my life, and I'm so grateful to have you. I hope you feel incredibly loved and celebrated, not just today, but always.</p>
+                    <br>
+                    <p>Here's to an amazing year ahead, and all the new memories we're going to make! ❤️</p>
+                    <br>
+                    <p>Love you more than words can say.</p>
+                    <br>
+                    <p>Forever yours,</p>
+                    <p>Atul</p>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" onclick="changePage(32, 31)">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" onclick="changePage(32, 1)">
+                    <i class="fas fa-home"></i> Start Over
+                </button>
+            </div>
+            
+            <footer>
+                <p>Page 32 of 32</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Page navigation
+        function changePage(from, to) {
+            document.getElementById('page' + from).classList.remove('active');
+            document.getElementById('page' + to).classList.add('active');
+        }
+        
+        // Heart animation for page 1
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate 3 small hearts
+            const smallHeartsContainer = document.getElementById('smallHearts');
+            const bigHeart = document.getElementById('bigHeart');
+            const loveText = document.getElementById('loveText');
+            
+            let clickedHearts = 0;
+            
+            for (let i = 0; i < 3; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'small-heart';
+                heart.innerHTML = '❤️';
+                heart.style.fontSize = '4rem';
+                
+                heart.addEventListener('click', function() {
+                    if (!this.classList.contains('clicked')) {
+                        this.classList.add('clicked');
+                        this.style.transform = 'scale(1.5)';
+                        this.style.opacity = '0.7';
+                        
+                        clickedHearts++;
+                        
+                        // Check if all hearts are clicked
+                        if (clickedHearts === 3) {
+                            setTimeout(() => {
+                                bigHeart.style.display = 'block';
+                                setTimeout(() => {
+                                    loveText.style.display = 'block';
+                                }, 1000);
+                            }, 500);
+                        }
+                    }
+                });
+                
+                smallHeartsContainer.appendChild(heart);
+            }
+        });
+    </script>
+</body>
+</html>
